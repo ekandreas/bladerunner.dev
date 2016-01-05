@@ -26,7 +26,13 @@ set('shared_files', ['.env', 'web/.htaccess', 'web/robots.txt']);
 set('env_vars', '/usr/bin/env');
 
 task('deploy:restart', function () {
-    writeln('Purge cache...');
+    writeln('Add bladerunner plugin...');
+    run('cd {{release_path}} && php composer.phar require ekandreas/bladerunner');
+
+    writeln('Create dist...');
+    run('cd {{release_path}}/web/app/plugins/bladerunner && php ../../../../composer.phar update');
+    run('cd {{release_path}}/web/app/plugins && zip -r ../../bladerunner.zip bladerunner');
+
     //run("curl -s http://www.skolporten.se/wp/wp-admin/admin-ajax.php?action=purge");
 })->desc('Restarting apache2 and varnish');
 
