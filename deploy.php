@@ -16,7 +16,7 @@ server( 'production', 'c3583.cloudnet.se', 22 )
     ->stage('production')
     ->identityFile();
 
-set('repository', 'https://github.com/ekandreas/bladerunner');
+set('repository', 'https://github.com/ekandreas/bladerunner.dev');
 
 // Symlink the .env file for Bedrock
 set('env', 'prod');
