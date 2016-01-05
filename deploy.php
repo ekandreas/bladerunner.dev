@@ -31,7 +31,7 @@ task('deploy:restart', function () {
 
     writeln('Create dist...');
     run('cd {{release_path}}/web/app/plugins/bladerunner && php ../../../../composer.phar update');
-    run('cd {{release_path}}/web/app/plugins/bladerunner && rm -f .git .gitignore composer.json composer.lock .DS_Store');
+    run('cd {{release_path}}/web/app/plugins/bladerunner && rm -f .git .gitignore composer.json composer.lock .DS_Store .styleci.yml');
     run('cd {{release_path}}/web/app/plugins && zip -r ../../bladerunner.zip bladerunner');
 
     //run("curl -s http://www.skolporten.se/wp/wp-admin/admin-ajax.php?action=purge");
