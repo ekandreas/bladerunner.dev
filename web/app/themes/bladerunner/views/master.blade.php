@@ -36,6 +36,7 @@
         </style>
     </head>
     <body>
+    	@include( 'views.parts.ga' )
         <div class="container">
             <div class="content">
                 <div class="title">Bladerunner</div>
