@@ -44,7 +44,7 @@
                 	Page rendered: {{ date('Y-m-d H:i') }}
                 </p>
                 <p>
-                	<a onclick="ga( 'send', 'event', 'Bladerunner', 'download', 'distro');" href="/bladerunner.zip">
+                	<a onclick="ga( 'send', 'event', 'Downloads', 'dist', '{{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/bladerunner.zip') ) }}');" href="/bladerunner.zip">
                 		<strong>(+) Download dist bladrunner.zip, created {{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/bladerunner.zip') ) }}</strong>
                 	</a>
                 </p>
