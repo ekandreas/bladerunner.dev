@@ -39,8 +39,14 @@
         <div class="container">
             <div class="content">
                 <div class="title">Bladerunner</div>
-                <p>Page rendered: {{ date('Y-m-d H:i') }}</p>
-                <p><a href="/bladerunner.zip">(+) Download dist bladrunner.zip</a></p>
+                <p>
+                	Page rendered: {{ date('Y-m-d H:i') }}
+                </p>
+                <p>
+                	<a href="/bladerunner.zip">
+                		<strong>(+) Download dist bladrunner.zip, created {{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/bladerunner.zip') ) }}</strong>
+                	</a>
+                </p>
             </div>
         </div>
     </body>
