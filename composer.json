@@ -37,7 +37,8 @@
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
     "johnpbloch/wordpress": "4.4",
-    "deployer/deployer":"*"
+    "deployer/deployer":"*",
+    "wpackagist-plugin/oembed-gist":"*",
   },
   "extra": {
     "installer-paths": {
