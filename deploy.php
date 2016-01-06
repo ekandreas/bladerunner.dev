@@ -22,10 +22,11 @@ set('repository', 'https://github.com/ekandreas/bladerunner.dev');
 set('env', 'prod');
 set('keep_releases', 10);
 set('shared_dirs', ['web/app/uploads']);
-set('shared_files', ['.env', 'web/.htaccess', 'web/robots.txt']);
+set('shared_files', ['.env', 'web/.htaccess', 'web/robots.txt', 'web/bladerunner.zip']);
 set('env_vars', '/usr/bin/env');
 
 task('deploy:restart', function () {
+    
     writeln('Add bladerunner plugin...');
     run('cd {{release_path}} && php composer.phar require ekandreas/bladerunner');
 
@@ -35,6 +36,8 @@ task('deploy:restart', function () {
     run('cd {{release_path}}/web/app/plugins && zip -r ../../bladerunner.zip bladerunner');
 
     //run("curl -s http://www.skolporten.se/wp/wp-admin/admin-ajax.php?action=purge");
+    run('sudo service apache2 restart && sudo service varnish restart');
+
 })->desc('Restarting apache2 and varnish');
 
 task( 'deploy', [

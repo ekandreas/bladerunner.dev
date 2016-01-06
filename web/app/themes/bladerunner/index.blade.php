@@ -9,7 +9,7 @@
 		{{ the_post() }}
 
 		<h2>{{ the_title() }}</h2>
-		<p>{{ the_content() }}</p>
+		<p>{{ the_content(null) }}</p>
 
 	@endwhile
 	
