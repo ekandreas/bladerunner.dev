@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3ba7c7b18e56bddb5e4804037c70d8f2",
-    "content-hash": "4fee67f838bae63c40cc05d475bd5a6a",
+    "hash": "de57a7bbfa88e537be3984e1e34809d7",
+    "content-hash": "2c5cbf34f1dd1863a834ad6e9736098b",
     "packages": [
         {
             "name": "composer/installers",
@@ -1807,6 +1807,26 @@
                 "environment"
             ],
             "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "wpackagist-plugin/oembed-gist",
+            "version": "2.0.3",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/oembed-gist/",
+                "reference": "tags/2.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/oembed-gist.2.0.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/oembed-gist/"
         }
     ],
     "packages-dev": [],
