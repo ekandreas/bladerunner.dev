@@ -38,7 +38,9 @@
     "vlucas/phpdotenv": "^2.0.1",
     "johnpbloch/wordpress": "*",
     "deployer/deployer":"*",
-    "wpackagist-plugin/oembed-gist":"*"
+    "wpackagist-plugin/oembed-gist":"*",
+    "filp/whoops": "dev-master",
+    "wpackagist-plugin/query-monitor": "^2.8"
   },
   "extra": {
     "installer-paths": {
