@@ -14,7 +14,7 @@
 						@yield('main')
 					</div>
 					<div class="col-md-4 col-xs-12">
-						{{ dynamic_sidebar('sidebar') }}
+						{{ dynamic_sidebar('sidebar') ? '' : '' }}
 					</div>
 				</div>
 
