@@ -10,6 +10,8 @@
 
 		<p>{{ the_content() }}</p>
 
+		@include('views.parts.comments')
+
 	@endwhile
 	
 

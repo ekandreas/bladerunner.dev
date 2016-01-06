@@ -10,7 +10,6 @@
 
 		<h2>{{ the_title() }}</h2>
 		<p>{{ the_content() }}</p>
-		<a href="{{ the_permalink() }}">Read more...</a>
 
 	@endwhile
 	
