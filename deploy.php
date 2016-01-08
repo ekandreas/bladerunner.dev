@@ -2,6 +2,15 @@
 date_default_timezone_set('Europe/Stockholm');
 
 include_once 'vendor/deployer/deployer/recipe/common.php';
+include_once 'vendor/ekandreas/dipwpe/main.php';
+
+env('remote.name','bladerunner');
+env('remote.path','/mnt/persist/www/bladerunner.aekab.se');
+env('remote.ssh','root@c3583.cloudnet.se');
+env('remote.database','bladerunner');
+env('remote.domain','bladerunner.aekab.se');
+env('local.domain','bladerunner.dev');
+env('local.is_elastic',false);
 
 server( 'development', 'andreasek.se', 22 )
     ->env('deploy_path','/var/www/html')

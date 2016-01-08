@@ -40,7 +40,8 @@
     "deployer/deployer":"*",
     "wpackagist-plugin/oembed-gist":"*",
     "filp/whoops": "dev-master",
-    "wpackagist-plugin/query-monitor": "^2.8"
+    "wpackagist-plugin/query-monitor": "^2.8",
+    "ekandreas/dipwpe": "*"
   },
   "extra": {
     "installer-paths": {

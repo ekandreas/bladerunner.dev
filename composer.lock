@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c1db03a665245a451491a203ad9d73fa",
-    "content-hash": "985d6c8270ea330908ee15f928bfc9f7",
+    "hash": "dcbe03c55b711e8150c95fd665bdcd21",
+    "content-hash": "00d42ee2047cc01c0004aa91ccf4cf41",
     "packages": [
         {
             "name": "composer/installers",
@@ -158,6 +158,28 @@
             "description": "Deployment Tool",
             "homepage": "http://deployer.org",
             "time": "2015-09-02 06:44:10"
+        },
+        {
+            "name": "ekandreas/dipwpe",
+            "version": "0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ekandreas/dipwpe.git",
+                "reference": "02ea5ef111adc65d2d8b4784f35467595c359506"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ekandreas/dipwpe/zipball/02ea5ef111adc65d2d8b4784f35467595c359506",
+                "reference": "02ea5ef111adc65d2d8b4784f35467595c359506",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Deployment recipe",
+            "time": "2016-01-07 14:48:29"
         },
         {
             "name": "elfet/pure",
@@ -539,16 +561,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.4",
+            "version": "4.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "ad70e5cf518b697eed94f558ca6c88e5cc87e65b"
+                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ad70e5cf518b697eed94f558ca6c88e5cc87e65b",
-                "reference": "ad70e5cf518b697eed94f558ca6c88e5cc87e65b",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/85d6a8c16c7e8bb369e7530d3676d16618f68e24",
+                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24",
                 "shasum": ""
             },
             "require": {
@@ -572,7 +594,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2015-12-08 23:46:14"
+            "time": "2016-01-06 18:46:15"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
