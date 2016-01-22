@@ -2,8 +2,6 @@
 
 @section('main')
 
-	<h1>Home</h1>
-
 	@while( have_posts() )
 
 		{{ the_post() }}

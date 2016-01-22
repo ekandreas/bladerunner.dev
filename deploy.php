@@ -67,6 +67,7 @@ task('deploy:create_dist', function () {
 
 task('deploy:restart', function () {
     run('sudo service apache2 restart && sudo service varnish restart');
+    run("rm {{release_path}}/web/app/uploads/.cache/*.*");
 })->desc('Restarting apache2 and varnish');
 
 task( 'deploy', [

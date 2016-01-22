@@ -1,10 +1,12 @@
 <footer>
   <div class="row">
-    <div class="col-lg-12">
-      <hr/>
+
+    <hr/>
+
+    <div class="col-lg-12 well">
 
       <p>
-        Page rendered: {{ date('Y-m-d H:i:s') }} GMT
+        Page rendered with Bladerunner at {{ date('Y-m-d H:i:s') }} GMT
       </p>
 
       <p>
@@ -29,7 +31,9 @@
         &nbsp;|&nbsp;
         Contact at <a href="mailto:andreas@aekab.se">andreas@aekab.se</a>.
       </p>
-      
+
     </div>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
   </div>
 </footer>
