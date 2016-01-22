@@ -6,7 +6,7 @@
  */
 require_once(dirname(__DIR__) . '/vendor/autoload.php');
 
-if( WP_DEBUG ) {
+if( defined('WP_DEBUG') && WP_DEBUG ) {
 	$whoops = new \Whoops\Run;
 	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 	$whoops->register();
