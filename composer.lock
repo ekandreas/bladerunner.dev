@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97f5ddd3e4c3473c610094fb23832730",
-    "content-hash": "ec2128468fc21ceadddd7d409257debc",
+    "hash": "dd358adc36313298cca3085a39b17fb4",
+    "content-hash": "5bc063bdcbbbb44b4b1b08cf6f6425b5",
     "packages": [
         {
             "name": "composer/installers",
@@ -338,6 +338,42 @@
             ],
             "description": "Deployment recipe",
             "time": "2016-01-07 14:48:29"
+        },
+        {
+            "name": "ekandreas/docker-bedrock",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ekandreas/docker-bedrock.git",
+                "reference": "ec0451073fe84e1fd330dfe21d7d46ec36c4c08e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ekandreas/docker-bedrock/zipball/ec0451073fe84e1fd330dfe21d7d46ec36c4c08e",
+                "reference": "ec0451073fe84e1fd330dfe21d7d46ec36c4c08e",
+                "shasum": ""
+            },
+            "require": {
+                "deployer/deployer": "~3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "EkAndreas\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Ek",
+                    "email": "andreas@aekab.se"
+                }
+            ],
+            "description": "Docker environment for Roots Bedrock projects",
+            "time": "2016-01-21 21:20:59"
         },
         {
             "name": "elfet/pure",
@@ -1935,7 +1971,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "filp/whoops": 20
+        "filp/whoops": 20,
+        "ekandreas/docker-bedrock": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

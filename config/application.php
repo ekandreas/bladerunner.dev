@@ -62,6 +62,7 @@ define('NONCE_SALT', getenv('NONCE_SALT'));
 /**
  * Custom Settings
  */
+define( 'WP_AUTO_UPDATE_CORE', false );
 define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
