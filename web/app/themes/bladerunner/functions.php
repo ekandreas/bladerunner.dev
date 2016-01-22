@@ -57,3 +57,27 @@ function wp_api_block_request($pre, $args, $url)
     }
 }
 add_filter('pre_http_request', 'wp_api_block_request', 10, 3);
+
+function shieldHtmlImage($url)
+{
+    $key = 'shield_' . md5($url);
+    $stored_url = get_transient($key);
+    if (!$stored_url) {
+        $content = file_get_contents($url);
+        if( $content ) {
+            $uploads = wp_upload_dir();
+            $storage_file = $uploads['path'].'/'.$key.'.svg';
+            $stored_url = $uploads['url'].'/'.$key.'.svg';
+            if (file_put_contents($storage_file, $content)) {
+                set_transient($key, $stored_url, 60*15);
+            } else {
+                $stored_url = null;
+            }
+        }
+    }
+
+    if( $stored_url ) {
+        return '<img src="' . $stored_url . '" alt="shield for ' . $url . '" />';
+    }
+
+}
