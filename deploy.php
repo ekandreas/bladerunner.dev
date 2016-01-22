@@ -42,7 +42,8 @@ task('deploy:create_dist', function () {
 
     run("curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer");
 
-    run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner --no-dev');
+    $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner --no-dev');
+    writeln($output);
 
     run('cd /tmp/bladerunner && rm -Rf tests && rm -f .git .gitignore composer.json composer.lock .DS_Store .styleci.yml .travis.yml phpunit.xml.dist');
     run('rm -f /tmp/bladerunner.zip && cd /tmp/bladerunner && zip -r ../bladerunner.zip .');
