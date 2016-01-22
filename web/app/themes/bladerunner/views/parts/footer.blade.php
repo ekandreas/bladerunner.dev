@@ -6,7 +6,7 @@
     <div class="col-lg-12 well">
 
       <p>
-        Page rendered with Bladerunner at {{ date('Y-m-d H:i:s') }} GMT
+        Page rendered with Bladerunner at {{ date ("Y-m-d H:i", filemtime(__FILE__)) }} GMT
       </p>
 
       <p>
