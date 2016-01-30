@@ -68,21 +68,17 @@ function shieldHtmlImage($url)
                 'timeout' => 3, //s
             )
         ));
-        $content = file_get_contents($url, false, $ctx);
-        if ($content) {
+
+        try {
+            $content = file_get_contents($url, false, $ctx);
             $uploads = wp_upload_dir();
             $storage_file = $uploads['path'].'/'.$key.'.svg';
-            $stored_url = $uploads['url'].'/'.$key.'.svg';
-            if (file_put_contents($storage_file, $content)) {
-                set_transient($key, $stored_url, 60*15);
-            } else {
-                $stored_url = null;
-                set_transient($key, '', 60*15);
-            }
+            file_put_contents($storage_file, $content);
+        } catch (\Exception $ex) {
         }
-        else {
-            set_transient($key, '', 60*15);
-        }
+        
+        $stored_url = $uploads['url'].'/'.$key.'.svg';
+        set_transient($key, $stored_url, 60*60);
     }
 
     if ($stored_url) {
