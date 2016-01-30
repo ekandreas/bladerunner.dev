@@ -15,11 +15,13 @@ env('remote.domain','bladerunner.aekab.se');
 env('local.domain','bladerunner.dev');
 env('local.is_elastic',false);
 
-server( 'development', 'andreasek.se', 22 )
-    ->env('deploy_path','/var/www/html')
-    ->env('branch', 'master')
-    ->stage('development')
-    ->user( 'vagrant', 'vagrant' );
+server( 'development', 'default', 22 )
+    ->env('container','bladerunner')
+    ->env('deploy_path','/var/www/html');
+
+server( 'test', 'test', 22 )
+    ->env('container','bladerunner')
+    ->env('deploy_path','/var/www/html');
 
 server( 'production', 'c3583.cloudnet.se', 22 )
     ->env('deploy_path','/mnt/persist/www/bladerunner.aekab.se')

@@ -34,7 +34,7 @@
     "deployer/deployer":"*",
     "filp/whoops": "dev-master",
     "ekandreas/dipwpe": "*",
-    "wpackagist-plugin/query-monitor": "^2.8",
-    "ekandreas/docker-bedrock": "dev-master"
+    "wpackagist-plugin/query-monitor": "*",
+    "ekandreas/docker-bedrock": "*"
   }
 }

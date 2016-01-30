@@ -63,8 +63,13 @@ function shieldHtmlImage($url)
     $key = 'shield_' . md5($url);
     $stored_url = get_transient($key);
     if (!$stored_url) {
-        $content = file_get_contents($url);
-        if( $content ) {
+        $ctx = stream_context_create(array('http'=>
+            array(
+                'timeout' => 3, //s
+            )
+        ));
+        $content = file_get_contents($url, false, $ctx);
+        if ($content) {
             $uploads = wp_upload_dir();
             $storage_file = $uploads['path'].'/'.$key.'.svg';
             $stored_url = $uploads['url'].'/'.$key.'.svg';
@@ -76,8 +81,15 @@ function shieldHtmlImage($url)
         }
     }
 
-    if( $stored_url ) {
+    if ($stored_url) {
         return '<img src="' . $stored_url . '" alt="shield for ' . $url . '" />';
     }
-
 }
+
+add_filter('bladerunner/extend', function ($extensions) {
+    $extensions[] = [
+        'pattern'=>'/(\s*)@mysyntax(\s*)/',
+        'replace'=>'$1<?php echo "MYSYNTAX!"; ?>$2',
+    ];
+    return $extensions;
+});
