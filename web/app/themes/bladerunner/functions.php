@@ -77,7 +77,11 @@ function shieldHtmlImage($url)
                 set_transient($key, $stored_url, 60*15);
             } else {
                 $stored_url = null;
+                set_transient($key, '', 60*15);
             }
+        }
+        else {
+            set_transient($key, '', 60*15);
         }
     }
 
