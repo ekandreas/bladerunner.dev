@@ -1,15 +1,16 @@
-@extends('master')
+@extends('views.master')
 
 @section('main')
 
-	<h1>{{ the_title() }}</h1>
+	<h1>Home</h1>
 
 	@while( have_posts() )
 
 		{{ the_post() }}
 
+		<h2>{{ the_title() }}</h2>
 		<p>{{ the_content() }}</p>
 
 	@endwhile
-	
+
 @endsection
