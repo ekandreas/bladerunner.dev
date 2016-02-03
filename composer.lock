@@ -107,16 +107,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.4.1",
+            "version": "4.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24"
+                "reference": "fe9320de0793602084c600e22c0c5e0bb601a264"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/85d6a8c16c7e8bb369e7530d3676d16618f68e24",
-                "reference": "85d6a8c16c7e8bb369e7530d3676d16618f68e24",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/fe9320de0793602084c600e22c0c5e0bb601a264",
+                "reference": "fe9320de0793602084c600e22c0c5e0bb601a264",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2016-01-06 18:46:15"
+            "time": "2016-02-02 17:16:14"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -341,16 +341,16 @@
         },
         {
             "name": "ekandreas/docker-bedrock",
-            "version": "0.6",
+            "version": "0.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ekandreas/docker-bedrock.git",
-                "reference": "22a557d4e56e08dc2156901152dc141b3d7df810"
+                "reference": "690c42b81a4d17b91aadfeb1202099ec1437f368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ekandreas/docker-bedrock/zipball/22a557d4e56e08dc2156901152dc141b3d7df810",
-                "reference": "22a557d4e56e08dc2156901152dc141b3d7df810",
+                "url": "https://api.github.com/repos/ekandreas/docker-bedrock/zipball/690c42b81a4d17b91aadfeb1202099ec1437f368",
+                "reference": "690c42b81a4d17b91aadfeb1202099ec1437f368",
                 "shasum": ""
             },
             "require": {
@@ -374,7 +374,7 @@
                 }
             ],
             "description": "Docker environment for Roots Bedrock projects",
-            "time": "2016-01-27 08:49:37"
+            "time": "2016-02-02 10:09:23"
         },
         {
             "name": "elfet/pure",

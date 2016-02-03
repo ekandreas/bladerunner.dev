@@ -1,2 +1,2 @@
 <?php
-bladerunner('views.pages.404');
+	bladerunner('views.pages.404');
