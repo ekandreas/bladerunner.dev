@@ -10,6 +10,12 @@
       </p>
 
       <p>
+        <a onclick="ga( 'send', 'event', 'Downloads', 'dist', '{{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/bladerunner.zip') ) }}');" href="/bladerunner.zip">
+          Not using Composer? Here is the latest WordPress Bladerunner plugin (zip)
+        </a>
+      </p>
+
+      <p>
         Made by <a href="http://www.aekab.se" rel="nofollow">AEKAB</a>.
         &nbsp;|&nbsp;
         Contact at <a href="mailto:andreas@aekab.se" rel="nofollow">andreas@aekab.se</a>.
