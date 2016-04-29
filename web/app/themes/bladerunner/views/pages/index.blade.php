@@ -9,6 +9,8 @@
 		<h2>{{ the_title() }}</h2>
 		<p>{{ the_content('(Read post)') }}</p>
 
+		<hr/>
+		
 	@endwhile
 	
 
