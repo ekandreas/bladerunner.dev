@@ -16,9 +16,9 @@
       </p>
 
       <p>
-        Made by <a href="http://www.aekab.se" rel="nofollow">AEKAB</a>.
+        Made by <a href="https://www.elseif.se" rel="nofollow">Elseif AB</a>.
         &nbsp;|&nbsp;
-        Contact at <a href="mailto:andreas@aekab.se" rel="nofollow">andreas@aekab.se</a>.
+        Contact at <a href="mailto:andreas@elseif.se" rel="nofollow">andreas@elseif.se</a>.
       </p>
 
     </div>
