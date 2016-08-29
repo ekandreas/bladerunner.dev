@@ -16,7 +16,7 @@ set('repository', 'https://github.com/ekandreas/bladerunner.dev');
 set('env', 'prod');
 set('keep_releases', 10);
 set('shared_dirs', ['web/app/uploads']);
-set('shared_files', ['.env', 'web/.htaccess', 'web/robots.txt']);
+set('shared_files', ['bladerunner.zip', '.env', 'web/.htaccess', 'web/robots.txt']);
 set('env_vars', '/usr/bin/env');
 
 task('deploy:create_dist', function () {
@@ -41,7 +41,7 @@ task('deploy:create_dist', function () {
     run('chown forge:www-data /tmp/bladerunner.zip');
     run('chown -R forge:www-data /tmp/bladerunner');
     run('cp -r /tmp/bladerunner {{release_path}}/web/app/plugins');
-    run('cp -r /tmp/bladerunner.zip {{release_path}}/web');
+    run('cp -r /tmp/bladerunner.zip {{deploy_path}}/shared/web/app/uploads');
     run('rm -Rf /tmp/bladerunner');
     run('rm -f /tmp/bladerunner.zip');
 

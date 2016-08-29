@@ -10,7 +10,7 @@
       </p>
 
       <p>
-        <a onclick="ga( 'send', 'event', 'Downloads', 'dist', '{{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/bladerunner.zip') ) }}');" href="/bladerunner.zip">
+        <a onclick="ga( 'send', 'event', 'Downloads', 'dist', '{{ date("Y-m-d H:i", @filectime( $_SERVER['DOCUMENT_ROOT'] . '/uploads/bladerunner.zip') ) }}');" href="/app/uploads/bladerunner.zip">
           Not using Composer? Here is the latest WordPress Bladerunner plugin (zip)
         </a>
       </p>
