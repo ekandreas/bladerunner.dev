@@ -1,2 +1,2 @@
 <?php
-	bladerunner('views.pages.single');
+bladerunner( 'views.pages.single' );

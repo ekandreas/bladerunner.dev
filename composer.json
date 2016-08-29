@@ -31,10 +31,8 @@
     "wordpress-install-dir": "web/wp"
   },
   "require-dev": {
-    "deployer/deployer":"*",
     "filp/whoops": "dev-master",
-    "ekandreas/dipwpe": "*",
     "wpackagist-plugin/query-monitor": "*",
-    "ekandreas/docker-bedrock": "*"
+    "ekandreas/valet-deploy": "*"
   }
 }

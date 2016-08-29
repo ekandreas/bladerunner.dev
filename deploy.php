@@ -1,25 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Stockholm');
 
-include_once 'vendor/ekandreas/docker-bedrock/recipe.php';
-set('mysql.database','bladerunner');
-include_once 'vendor/ekandreas/dipwpe/main.php';
-
-env('remote.name','bladerunner');
-env('remote.path','/mnt/persist/www/bladerunner.aekab.se');
-env('remote.ssh','root@c3583.cloudnet.se');
-env('remote.database','bladerunner');
-env('remote.domain','bladerunner.aekab.se');
-env('local.domain','bladerunner.dev');
-env('local.is_elastic',false);
-
-server( 'development', 'default', 22 )
-    ->env('container','bladerunner')
-    ->env('deploy_path','/var/www/html');
-
-server( 'test', 'test', 22 )
-    ->env('container','bladerunner')
-    ->env('deploy_path','/var/www/html');
+include_once 'vendor/ekandreas/valet-deploy/recipe.php';
 
 server( 'production', 'c3583.cloudnet.se', 22 )
     ->env('deploy_path','/mnt/persist/www/bladerunner.aekab.se')
@@ -76,7 +58,7 @@ task( 'deploy', [
     'deploy:update_code',
     'deploy:vendors',
     'deploy:shared',
-    'deploy:create_dist',
+//    'deploy:create_dist',
     'deploy:symlink',
     'cleanup',
     'deploy:restart',
