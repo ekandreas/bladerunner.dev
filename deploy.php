@@ -3,9 +3,9 @@ date_default_timezone_set('Europe/Stockholm');
 
 include_once 'vendor/ekandreas/valet-deploy/recipe.php';
 
-server( 'production', 'c3583.cloudnet.se', 22 )
-    ->env('deploy_path','/mnt/persist/www/bladerunner.aekab.se')
-    ->user( 'root' )
+server( 'production', 'elseif.se', 22 )
+    ->env('deploy_path','~/bladerunner.elseif.se')
+    ->user( 'forge' )
     ->env('branch', 'master')
     ->stage('production')
     ->identityFile();
@@ -22,7 +22,7 @@ set('env_vars', '/usr/bin/env');
 task('deploy:create_dist', function () {
     writeln('Creating dist');
 
-    run("curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer");
+    //run("curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer");
 
     $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner --prefer-dist --no-dev ');
 
@@ -38,8 +38,8 @@ task('deploy:create_dist', function () {
     run('rm -f /tmp/bladerunner.zip && cd /tmp/bladerunner && zip -r ../bladerunner.zip .');
 
     writeln('Copy dist to plugin folder');
-    run('chown www-data:www-data /tmp/bladerunner.zip');
-    run('chown -R www-data:www-data /tmp/bladerunner');
+    run('chown forge:www-data /tmp/bladerunner.zip');
+    run('chown -R forge:www-data /tmp/bladerunner');
     run('cp -r /tmp/bladerunner {{release_path}}/web/app/plugins');
     run('cp -r /tmp/bladerunner.zip {{release_path}}/web');
     run('rm -Rf /tmp/bladerunner');
@@ -48,8 +48,8 @@ task('deploy:create_dist', function () {
 })->desc('Creating dist of plugin');
 
 task('deploy:restart', function () {
-    run('sudo service apache2 restart && sudo service varnish restart');
-    run("rm {{release_path}}/web/app/uploads/.cache/*.*");
+    //run('sudo service apache2 restart && sudo service varnish restart');
+    run("rm {{deploy_path}}/shared/web/app/uploads/.cache/*.*");
 })->desc('Restarting apache2 and varnish');
 
 task( 'deploy', [
@@ -58,7 +58,7 @@ task( 'deploy', [
     'deploy:update_code',
     'deploy:vendors',
     'deploy:shared',
-//    'deploy:create_dist',
+    'deploy:create_dist',
     'deploy:symlink',
     'cleanup',
     'deploy:restart',
