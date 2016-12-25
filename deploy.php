@@ -1,12 +1,15 @@
 <?php
+namespace Deployer;
+
 date_default_timezone_set('Europe/Stockholm');
 
-include_once 'vendor/ekandreas/valet-deploy/recipe.php';
+require_once 'vendor/deployer/deployer/recipe/common.php';
 
-server( 'production', 'elseif.se', 22 )
-    ->env('deploy_path','~/bladerunner.elseif.se')
-    ->user( 'forge' )
-    ->env('branch', 'master')
+server('production', 'elseif.se', 22)
+    ->set('deploy_path', '~/bladerunner.elseif.se')
+    ->user('forge')
+    ->set('branch', 'master')
+    ->set('database', 'bladerunner')
     ->stage('production')
     ->identityFile();
 
@@ -28,7 +31,7 @@ task('deploy:create_dist', function () {
 
     $version = '0';
     preg_match('/ekandreas\/bladerunner\s\((.*)\)/i', $output, $matches);
-    if( $matches ) {
+    if ($matches) {
         $version = $matches[1];
     }
 
@@ -46,23 +49,40 @@ task('deploy:create_dist', function () {
     run('rm -f /tmp/bladerunner.zip');
 
 })->desc('Creating dist of plugin');
+after('deploy:shared', 'deploy:create_dist');
 
-task('deploy:restart', function () {
-    //run('sudo service apache2 restart && sudo service varnish restart');
-    run("rm -f {{deploy_path}}/shared/web/app/uploads/.cache/*.*");
-})->desc('Restarting apache2 and varnish');
-
-task( 'deploy', [
+task('deploy', [
     'deploy:prepare',
     'deploy:release',
     'deploy:update_code',
     'deploy:vendors',
     'deploy:shared',
-    'deploy:create_dist',
     'deploy:symlink',
     'cleanup',
-    'deploy:restart',
     'success'
-] )->desc( 'Deploy your Bedrock project, eg dep deploy production' );
+])->desc('Deploy your Bedrock project, eg dep deploy production');
 
+task('deploy:restart', function () {
+    //run('sudo service apache2 restart && sudo service varnish restart');
+    run("rm -f {{deploy_path}}/shared/web/app/uploads/.cache/*.*");
+})->desc('Restarting apache2 and varnish');
+after('deploy', 'deploy:restart');
 
+task('pull', function () {
+    $actions = [
+        "ssh forge@elseif.se 'cd {{deploy_path}}/current && wp db export - | gzip' > bladerunner.sql.gz",
+        "gzip -df bladerunner.sql.gz",
+        "wp db import bladerunner.sql",
+        "rm -f bladerunner.sql",
+        "wp search-replace 'bladerunner.elseif.se' 'bladerunner.app' --all-tables",
+        "rsync --exclude .cache -rve ssh " .
+            "forge@elseif.se:~/bladerunner.elseif.se/current/web/app/uploads web/app",
+        "wp rewrite flush",
+        "wp plugin activate query-monitor",
+    ];
+
+    foreach ($actions as $action) {
+        writeln("{$action}");
+        writeln(runLocally($action, 999));
+    }
+});

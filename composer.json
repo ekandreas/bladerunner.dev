@@ -6,7 +6,7 @@
   "authors": [
     {
       "name": "Andreas Ek",
-      "email": "andreas@aekab.se"
+      "email": "andreas@elseif.se"
     }
   ],
   "repositories": [
@@ -33,6 +33,6 @@
   "require-dev": {
     "filp/whoops": "dev-master",
     "wpackagist-plugin/query-monitor": "*",
-    "ekandreas/valet-deploy": "*"
+    "deployer/deployer": "~4"
   }
 }
