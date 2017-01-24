@@ -30,6 +30,9 @@
     },
     "wordpress-install-dir": "web/wp"
   },
+  "autoload": {
+    "psr-4": { "Bladerunner\\": "web/app/plugins/bladerunner/src/" }
+  },
   "require-dev": {
     "filp/whoops": "dev-master",
     "wpackagist-plugin/query-monitor": "*",

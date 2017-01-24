@@ -3,6 +3,14 @@
 add_filter('auto_update_plugin', '__return_false');
 add_filter('auto_update_theme', '__return_false');
 
+add_action( 'init', function() {
+    register_nav_menus(
+        array(
+            'main' => __( 'Main Menu' ),
+        )
+    );
+});
+
 if (function_exists('register_sidebar')) {
     register_sidebar(array(
         'name' => 'Sidebar',

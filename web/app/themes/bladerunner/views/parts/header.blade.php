@@ -1,19 +1,14 @@
-<div class="row">
-  <a href="/">
-    <img src="{{ get_stylesheet_directory_uri() . '/assets/images/bladerunner.png' }}" class="img-responsive" style="width:100%" />
-  </a>
+<?php
+  $navId = get_nav_menu_locations()['main'];
+  $currentId = get_the_ID();
+?>
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="nav blog-nav">
+      @foreach(wp_get_nav_menu_items($navId) as $navPost)
+        <a class="nav-link{{ (($navPost->url=='/' && is_home($currentId)) || $navPost->object_id == $currentId) ? ' active' : '' }}" href="{{ $navPost->url }}">{{ $navPost->title }}</a>
+      @endforeach
+    </nav>
+  </div>
 </div>
-<!--nav class="navbar navbar-default">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">{{ get_bloginfo('name') }}</a>
-    </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    </div>
-</nav-->

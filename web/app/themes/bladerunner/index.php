@@ -1,2 +1,2 @@
 <?php
-	bladerunner('views.pages.index');
+    echo view('views.pages.index');
