@@ -5,6 +5,9 @@ date_default_timezone_set('Europe/Stockholm');
 
 require_once 'vendor/deployer/deployer/recipe/common.php';
 
+set('ssh_type', 'native');
+set('ssh_multiplexing', true);
+
 server('production', 'elseif.se', 22)
     ->set('deploy_path', '~/bladerunner.elseif.se')
     ->user('forge')
