@@ -19,19 +19,28 @@
     "php": ">=5.5",
     "composer/installers": "~1.0.12",
     "vlucas/phpdotenv": "^2.0.1",
+    "wpackagist-plugin/oembed-gist": "*",
     "johnpbloch/wordpress": "*",
-    "wpackagist-plugin/oembed-gist":"*"
+    "wp-cli/wp-cli": "*"
   },
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "web/app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
     },
     "wordpress-install-dir": "web/wp"
   },
   "autoload": {
-    "psr-4": { "Bladerunner\\": "web/app/plugins/bladerunner/src/" }
+    "psr-4": {
+      "Bladerunner\\": "web/app/plugins/bladerunner/src/"
+    }
   },
   "require-dev": {
     "filp/whoops": "dev-master",
