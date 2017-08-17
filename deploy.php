@@ -1,20 +1,20 @@
 <?php
+
 namespace Deployer;
 
 date_default_timezone_set('Europe/Stockholm');
 
 require_once 'vendor/deployer/deployer/recipe/common.php';
 
-set('ssh_type', 'native');
-set('ssh_multiplexing', true);
 
-server('production', 'elseif.se', 22)
+host('elseif.se', 22)
     ->set('deploy_path', '~/bladerunner.elseif.se')
     ->user('forge')
     ->set('branch', 'master')
-    ->set('database', 'bladerunner')
+    ->set('ssh_type', 'native')
+    ->set('ssh_multiplexing', true)
     ->stage('production')
-    ->identityFile();
+    ->identityFile('~.ssh/id_rsa');
 
 set('repository', 'https://github.com/ekandreas/bladerunner.dev');
 
@@ -79,13 +79,13 @@ task('pull', function () {
         "rm -f bladerunner.sql",
         "wp search-replace 'bladerunner.elseif.se' 'bladerunner.app' --all-tables",
         "rsync --exclude .cache -rve ssh " .
-            "forge@elseif.se:~/bladerunner.elseif.se/current/web/app/uploads web/app",
+        "forge@elseif.se:~/bladerunner.elseif.se/current/web/app/uploads web/app",
         "wp rewrite flush",
         "wp plugin activate query-monitor",
     ];
 
     foreach ($actions as $action) {
         writeln("{$action}");
-        writeln(runLocally($action, 999));
+        writeln(runLocally($action, ['timeout' => 9999]));
     }
 });

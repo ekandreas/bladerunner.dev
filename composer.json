@@ -45,6 +45,6 @@
   "require-dev": {
     "filp/whoops": "dev-master",
     "wpackagist-plugin/query-monitor": "*",
-    "deployer/deployer": "~4"
+    "deployer/deployer": "*"
   }
 }
