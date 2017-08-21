@@ -53,13 +53,13 @@ task('deploy:create_dist', function () {
     run('rm -f /tmp/bladerunner.zip');
 
 })->desc('Creating dist of plugin');
-after('deploy:shared', 'deploy:create_dist');
+after('cleanup', 'deploy:create_dist');
 
 task('deploy:restart', function () {
     //run('sudo service apache2 restart && sudo service varnish restart');
     run("rm -f {{deploy_path}}/shared/web/app/uploads/.cache/*.*");
 })->desc('Restarting apache2 and varnish');
-after('deploy', 'deploy:restart');
+after('cleanup', 'deploy:restart');
 
 task('pull', function () {
     $actions = [
