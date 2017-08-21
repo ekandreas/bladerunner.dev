@@ -29,7 +29,7 @@ task('deploy:create_dist', function () {
 
     //run("curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer");
 
-    $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner --prefer-dist --no-dev ');
+    $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner:1.7-beta.3 bladerunner');
 
     writeln($output);
 
