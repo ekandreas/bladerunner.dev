@@ -22,6 +22,7 @@
                     </div>
                 </div>
 
+                @include('views.layouts.footer')
 
             </div>
 
