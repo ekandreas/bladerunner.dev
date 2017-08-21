@@ -9,7 +9,6 @@ class FrontPage extends Controller {
         $posts = get_posts([
             'posts_per_page' => 10,
             'post_type' => 'post',
-            'orderby' => 'menu_order',
         ]);
         return $posts;
     }
