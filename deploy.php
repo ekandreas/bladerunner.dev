@@ -31,6 +31,8 @@ task('deploy:create_dist', function () {
 
     $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner --prefer-dist --no-dev ');
 
+    writeln($output);
+
     $version = '0';
     preg_match('/ekandreas\/bladerunner\s\((.*)\)/i', $output, $matches);
     if ($matches) {
@@ -51,7 +53,7 @@ task('deploy:create_dist', function () {
     run('rm -f /tmp/bladerunner.zip');
 
 })->desc('Creating dist of plugin');
-//after('deploy:shared', 'deploy:create_dist');
+after('deploy:shared', 'deploy:create_dist');
 
 task('deploy:restart', function () {
     //run('sudo service apache2 restart && sudo service varnish restart');

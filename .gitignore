@@ -1,10 +1,12 @@
 # Application
 web/app/plugins/*
+!web/app/plugins/bladerunner
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+!web/app/themes/material-controller
 
 .idea/
 
