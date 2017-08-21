@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c8583cb132909cb70d8d6ed52d21c3f",
+    "content-hash": "ee28472b76a800bbc2900127e78feab6",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -3167,6 +3167,26 @@
                 "wordpress"
             ],
             "time": "2017-08-08T14:28:58+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/autodescription",
+            "version": "2.9.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/autodescription/",
+                "reference": "tags/2.9.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/autodescription.2.9.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/autodescription/"
         },
         {
             "name": "wpackagist-plugin/oembed-gist",

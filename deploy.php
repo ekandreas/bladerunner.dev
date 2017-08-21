@@ -1,20 +1,19 @@
 <?php
-
 namespace Deployer;
 
 date_default_timezone_set('Europe/Stockholm');
 
-require_once 'vendor/deployer/deployer/recipe/common.php';
+require_once 'vendor/deployer/deployer/recipe/composer.php';
 
-
-host('elseif.se', 22)
+host('178.62.249.226')
+    ->port(22)
     ->set('deploy_path', '~/bladerunner.elseif.se')
     ->user('forge')
     ->set('branch', 'master')
-    ->set('ssh_type', 'native')
-    ->set('ssh_multiplexing', true)
     ->stage('production')
-    ->identityFile('~.ssh/id_rsa');
+    ->forwardAgent(true)
+    ->multiplexing(true)
+    ->identityFile('~/.ssh/id_rsa');
 
 set('repository', 'https://github.com/ekandreas/bladerunner.dev');
 
@@ -52,18 +51,7 @@ task('deploy:create_dist', function () {
     run('rm -f /tmp/bladerunner.zip');
 
 })->desc('Creating dist of plugin');
-after('deploy:shared', 'deploy:create_dist');
-
-task('deploy', [
-    'deploy:prepare',
-    'deploy:release',
-    'deploy:update_code',
-    'deploy:vendors',
-    'deploy:shared',
-    'deploy:symlink',
-    'cleanup',
-    'success'
-])->desc('Deploy your Bedrock project, eg dep deploy production');
+//after('deploy:shared', 'deploy:create_dist');
 
 task('deploy:restart', function () {
     //run('sudo service apache2 restart && sudo service varnish restart');
