@@ -69,7 +69,7 @@ task('pull', function () {
         "rm -f bladerunner.sql",
         "wp search-replace 'bladerunner.elseif.se' 'bladerunner.app' --all-tables",
         "rsync --exclude .cache -rve ssh " .
-        "forge@elseif.se:~/bladerunner.elseif.se/current/web/app/uploads web/app",
+        "forge@elseif.se:~/bladerunner.elseif.se/shared/web/app/uploads web/app",
         "wp rewrite flush",
         "wp plugin activate query-monitor",
     ];
