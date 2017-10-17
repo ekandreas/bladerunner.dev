@@ -29,26 +29,13 @@ task('deploy:create_dist', function () {
 
     //run("curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer");
 
-    $output = run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner:1.7-beta.3 bladerunner');
-
-    writeln($output);
-
-    $version = '0';
-    preg_match('/ekandreas\/bladerunner\s\((.*)\)/i', $output, $matches);
-    if ($matches) {
-        $version = $matches[1];
-    }
-
-    writeln("<comment>Bladerunner version $version</comment>");
-
+    run('cd /tmp/ && rm -Rf bladerunner && composer create-project ekandreas/bladerunner bladerunner');
     run('cd /tmp/bladerunner && rm -Rf tests && rm -f .git .gitignore composer.json composer.lock .DS_Store .styleci.yml .travis.yml phpunit.xml.dist');
     run('rm -f /tmp/bladerunner.zip && cd /tmp/bladerunner && zip -r ../bladerunner.zip .');
-
     writeln('Copy dist to plugin folder');
     run('chown forge:www-data /tmp/bladerunner.zip');
     run('chown -R forge:www-data /tmp/bladerunner');
-    run('cp -r /tmp/bladerunner {{release_path}}/web/app/plugins');
-    run('cp -r /tmp/bladerunner.zip {{deploy_path}}/shared/web/app/uploads');
+    run('cp -r /tmp/bladerunner.zip ~/bladerunner.elseif.se/shared/web/app/uploads');
     run('rm -Rf /tmp/bladerunner');
     run('rm -f /tmp/bladerunner.zip');
 
