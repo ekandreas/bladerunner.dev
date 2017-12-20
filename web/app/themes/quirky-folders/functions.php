@@ -15,3 +15,9 @@ add_filter('bladerunner/controller/paths', function ($paths) {
     $paths[] = get_template_directory() . '/app/controllers';
     return $paths;
 });
+
+function get_latest_posts() {
+
+    return [];
+
+}

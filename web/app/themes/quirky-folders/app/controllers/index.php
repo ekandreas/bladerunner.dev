@@ -1,14 +1,14 @@
 <?php
-// app/controllers/index.php with controllers path set
 
 use Bladerunner\Controller;
 
 class IndexController extends Controller
 {
-    protected $template = 'app.views.index';
+    protected $template = 'views.index';
 
-    public function hello()
+    public function posts()
     {
+        $postModel = new Post();
         return 'hello world';
     }
 }
